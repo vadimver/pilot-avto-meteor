@@ -1,0 +1,225 @@
+<template name="addInvoice">
+{{tt}}
+{{nlook}}
+{{val_search}}
+
+<!-- # invoiceBlock -->
+<div class="invoiceBlock">
+  <div class = "row">
+      <div class = "col-sm-4 col-sm-offset-4">
+        <h4>Приходная накладная</h4>
+      </div>
+
+      <div class = "col-xs-4 col-sm-offset-4">
+        <form action="#" class = "searchBrandsName">
+            <div class = "row">
+                <div class = "col-sm-6">
+                <input type="text" name = "title" class="form-control">
+                </div>
+                    <div class = "col-sm-4">
+                    <button type="submit" value = "submit" class="btn btn-primary">Го</button>
+                     </div>
+            </div>
+        </form>
+      </div>
+  </div>
+
+  <!-- # invoiceBlock__buttonBrand -->
+  <div class = "invoiceBlock__buttonBrand row">
+    {{#each brabra}}
+        <div class = "col-xs-2">
+      			<button class='btn btn-primary butBrand' value = '{{BRA_BRAND}}'>{{BRA_BRAND}}</button>
+        </div>
+    {{/each}}
+  </div>
+  <!-- / invoiceBlock__buttonBrand -->
+
+
+  <!-- # tableBlock -->
+  <div class="tableBlock container-fluid">
+
+      <form action="#" class = "add_invoiceFinal">
+      ₴ <input type = "radio" name = "money" value = "uah">
+      € <input type = "radio" name = "money" value = "euro">
+      курс  <input type="text" name="course" value="{{course}}">
+      <table class="table">
+          <tr>
+
+            <th>Бренд</th>
+            <th>№ Бренда</th>
+            <th>Цена</th>
+            <th>Наличие</th>
+            <th>Наценка</th>
+            <th>Скидка</th>
+
+          </tr>
+          <tr>
+          {{#each select}}
+            <td><input type="text" name="brand" value="{{brand}}"></td>
+            <td><input type="text" name="num_brand" value="{{num_brand}}"></td>
+            <td><input type="text" name="cost" value=""></td>
+            <td><input type="number" name="exist" value="{{exist}}"></td>
+
+            <td><input type="text" name="markup" value="{{markup}}"></td>
+            <td><input type="text" name="discount" value="{{discount}}"></td>
+
+          {{/each}}
+          </tr>
+          <tr>
+            <th>Сортировка</th>
+          </tr>
+          <tr>
+          {{#each select}}
+            <td><input type="text" name="original" value="{{original}}"></td>
+          {{/each}}
+          </tr>
+          <tr>
+            <th>Группа</th>
+            <th>Подгруппа</th>
+            <th>Название</th>
+          </tr>
+          <tr>
+          {{#each select}}
+            <input type = "hidden" name = "id" value = "{{_id}}">
+            <td>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{grp}} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+
+                    {{#each groups}}
+
+                        <li><button value="{{group}}" class='btn group-one'>{{group}}</button></li>
+                    {{/each}}
+
+                  </ul>
+                </div>
+            </td>
+            <td>
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{subgrp}} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+
+                    {{#each subgroups}}
+
+                        <li><button value="{{subgroup}}" class='btn subgroup-one'>{{subgroup}}</button></li>
+                    {{/each}}
+
+                  </ul>
+                </div>
+            </td>
+            <td><input type="text" name="name_detail" value="{{name_detail}}"></td>
+            {{/each}}
+          </tr>
+          <tr>
+            <th>Описание</th>
+          </tr>
+
+          <tr>
+            {{#each select}}
+            <td><input type="text" name="desc" value="{{desc}}"></td>
+            {{/each}}
+          </tr>
+          <tr>
+            <th>Авто</th>
+            <th>Марка</th>
+          </tr>
+
+          <tr>
+          {{#each select}}
+            <td><input type="text" name="avto" value="{{avto}}"></td>
+            <td><input type="text" name="marc" value="{{marc}}"></td>
+          {{/each}}
+          </tr>
+          <tr>
+            <th>Добавить</th>
+          </tr>
+
+          <tr>
+          {{#each select}}
+            <td><button type='submit' class='btn btn-danger'>+</button></td>
+          {{/each}}
+          </tr>
+
+
+
+      </table>
+      </form>
+  </div>
+  <!-- / tableBlock -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<hr>
+<hr>
+<!-- # tableBlock -->
+<div class="tableBlock container-fluid">
+    <form action="#" class = "add_invoiceMain">
+      <input type = "text" name = "provider" placeholder = "Провайдер">
+      <input type = "text" name = "idinput" onkeyup="send.disabled = this.value ? false : 'disabled';" id="input" placeholder = "Номер накладной">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Группа</th>
+          <th>Подгруппа</th>
+          <th>Название</th>
+          <th>Описание</th>
+          <th>Авто</th>
+          <th>Марка</th>
+          <th>Бренд</th>
+          <th>№ Бренда</th>
+          <th>Сортировка</th>
+          <th>Наличие</th>
+          <th>Цена</th>
+          <th>Курс</th>
+          <th>Наценка</th>
+          <th>Скидка</th>
+          <th>Удалить</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {{#each final}}
+
+        <tr class="success">
+          <input type = "hidden" name = "id" value = "{{id}}">
+          <td><input type="text" name="group" value="{{group}}"></td>
+          <td><input type="text" name="subgroup" value="{{subgroup}}"></td>
+          <td><input type="text" name="name_detail" value="{{name_detail}}"></td>
+          <td><input type="text" name="desc" value="{{desc}}"></td>
+          <td><input type="text" name="avto" value="{{avto}}"></td>
+          <td><input type="text" name="marc" value="{{marc}}"></td>
+          <td><input type="text" name="brand" value="{{brand}}"></td>
+          <td><input type="text" name="num_brand" value="{{num_brand}}"></td>
+          <td><input type="text" name="original" value="{{original}}"></td>
+          <td><input type="number" name="exist" value="{{exist}}"></td>
+          <td><input type="text" name="cost_ua" value="{{cost_ua}}"></td>
+          <td><input type="text" name="course" value="{{course}}"></td>
+          <td><input type="text" name="markup" value="{{markup}}"></td>
+          <td><input type="text" name="discount" value="{{discount}}"></td>
+          <td><button class='btn btn-danger delFinal' value = "{{_id}}">DELETE</button></td>
+        </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+
+        <button class='btn btn-success delete_all' id="send" disabled="disabled">Добавить</button>
+    </form>
+
+</div>
+<!-- / tableBlock -->
+
+</div>
+<!-- / invoiceBlock -->
+</template>

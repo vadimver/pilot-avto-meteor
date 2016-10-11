@@ -1,0 +1,75 @@
+.ct-chart{
+  width: 1000px;
+  height: 500px;
+}
+body{
+  font-size: 12px;
+  margin-top: 90px;
+}
+
+.datepicker{
+  margin-top: 100px;
+  z-index: 100000!important;
+}
+
+.navbar-default {
+  background-color: #e6ad3c;
+}
+/**/
+
+.searchBlock__analog{
+  background-color: white;
+}
+.searchBlock__original{
+  background-color: white;
+}
+.searchBlock__name{
+  background-color: white;
+}
+
+/* цвет букв навбар */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
+/* цвет логотипа */
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+
+/* цвет таблицы*/
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #edd6a8;
+}
+.table-striped > tbody > tr:nth-of-type(2n) {
+    background-color: #e3cb9a;
+}
+/* цвет таблицы при наведении*/
+.table-hover > tbody > tr > td:hover, .table-hover > tbody > tr > th:hover, .table-hover > tbody > tr:hover > td, .table-hover > tbody >.table-hover > tbody > tr:hover > th {
+    background-color: #edb442;
+}
+
+
+/* Стили для распечатки*/
+
+.checkBlock input[type=text] {
+    border:none;
+/*    background:none;*/
+    outline:none;
+    padding:0;
+}
+
+.nameTableCheck{
+  margin-left: 40%;
+}
+
+.pdvCheck{
+  margin-left: 86%;
+}
+
+.imgCheck{
+  position: absolute;
+  top: 70px;
+  right: 20px;
+}

@@ -1,0 +1,51 @@
+<template name="invoice">
+  {{#each rand}}
+  <button value = "{{idinput}}" class='btn btn-success seeInvoice'> {{provider}} / # {{idinput}}</button>
+
+  {{/each}}
+
+  <form class = "selectDate">
+    <input type="text" name = "oneDate" class="form-control" id="my-datepicker">
+    <button type = 'submit' class = 'btn btn-success'>send</button>
+  </form>
+                    <table class="table">
+                      <thead>
+
+                        <tr>
+                          <th>Группа</th>
+                          <th>Название</th>
+                          <th>Авто</th>
+                          <th>Марка</th>
+                          <th>Бренд</th>
+                          <th>№ Бренда</th>
+                          <th>Оригинал</th>
+                          <th>Наличие</th>
+                          <th>Цена грн</th>
+                          <th>Цена евро</th>
+                          <th>удалить</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each invo}}
+                        <tr class="success">
+                          <td>{{group}}</td>
+                          <td>{{name_detail}}</td>
+                          <td>{{avto}}</td>
+                          <td>{{marc}}</td>
+                          <td>{{brand}}</td>
+                          <td>{{num_brand}}</td>
+                          <td>{{original}}</td>
+                          <td>{{exist}}</td>
+                          <td>{{cost_ua}}</td>
+                          <td>{{cost_euro}}</td>
+                          <td><button class='btn btn-danger delinvoice'>Удалить</button></td>
+                        </tr>
+                        {{/each}}
+
+                      </tbody>
+                        
+                    </table>
+
+
+</template>

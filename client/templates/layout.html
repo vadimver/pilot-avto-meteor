@@ -1,0 +1,77 @@
+<template name="layout">
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container navContainer">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{pathFor route='main'}}">Pilot Avto</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{{pathFor route='addInvoice'}}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Накладная</a></li>
+        <li><a href="{{pathFor route='basket'}}#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Корзина</a></li>
+        <li><a href="{{pathFor route='reserv'}}#"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Резерв</a></li>
+        <li><a href="{{pathFor route='statistic'}}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Доходы</a></li>
+        <li><a href="{{pathFor route='add'}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Настройки</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{pathFor route='invoice'}}"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> Приходные накладные</a></li>
+        <li><a href="{{pathFor route='sale'}}"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Расходные накладные</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+
+<!-- # searchBlock -->
+<div class="searchBlock">
+  <!-- # searchBlock__analog-->
+  <div class = "col-xs-4 searchBlock__analog">
+    <form action="#">
+        <div class = "row">
+        <div class = "col-sm-6">
+        <input type="text" name = "search" class="form-control search_solo"  placeholder="Аналог">
+        </div>
+        <div class = "col-sm-4">
+        <button type="submit" class="btn btn-primary">Го</button>
+         </div>
+        </div>
+    </form>
+  </div>
+  <!-- / searchBlock__analog -->
+  <!-- # searchBlock__original-->
+  <div class = "col-xs-4 searchBlock__original">
+    <form action="#" method = "POST">
+        <div class = "row">
+        <div class = "col-sm-6">
+        <input type="text" name = "search" class="form-control search_solo"  placeholder="Оригинал">
+        </div>
+        <div class = "col-sm-4">
+        <button type="submit" class="btn btn-primary">Го</button>
+         </div>
+        </div>
+    </form>
+  </div>
+  <!-- / searchBlock__original -->
+  <!-- # searchBlock__name-->
+  <div class = "col-xs-4 searchBlock__name">
+    <form action="#" method = "POST">
+        <div class = "row">
+        <div class = "col-sm-6">
+        <input type="text" name = "search" class="form-control search_solo"  placeholder="Название">
+        </div>
+        <div class = "col-sm-4">
+        <button type="submit" class="btn btn-primary">Го</button>
+         </div>
+        </div>
+    </form>
+  </div>
+  <!-- / searchBlock__name -->
+</div>
+<!-- / searchBlock -->
+</nav>
+{{> yield}}
+</template>

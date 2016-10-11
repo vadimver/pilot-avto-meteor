@@ -1,0 +1,49 @@
+<template name="basket">
+  <!-- # tableBlock -->
+  <form class = "addToInput">
+  <div class="tableBlock container-fluid">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>V</th>
+            <th>Название</th>
+            <th>Бренд</th>
+            <th>№ Бренда</th>
+            <th>Количество</th>
+            <th>Цена, грн</th>
+            <th>Скидка</th>
+            <th>Удалить</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each basket}}
+          <tr class="success">
+            <input type = "hidden" name = "markup" value = "{{markup}}">
+            <th><input type = 'checkbox'></th>
+            <th><input type = 'hidden' name = "bas_name" value = '{{name}}'>{{name}}</th>
+            <th><input type = 'hidden' name = "bas_brand" value = '{{brand}}'>{{brand}}</th>
+            <th><input type = 'hidden' name = "bas_num_brand" value = '{{numBrand}}'>{{numBrand}}</th>
+            <th><input type = 'text' name = "colbasket" value = '{{col}}'></th>
+            <th><input type = 'text' name = "bas_cost" value = '{{cost}}'></th>
+            <th><input type = 'text' name = "oneSkidka" value = '0'></th>
+            <th><button type="submit" class="btn btn-danger deletebas">X</button></th>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+      <div class = "row">
+          <div class = "col-sm-2 col-sm-offset-4">
+              <button type="button" class="btn btn-danger basketClear">Отмена</button>
+          </div>
+          <div class = "col-sm-2">
+              <button type="submit" class="btn btn-success del-basket">Продать</button>
+          </div>
+
+      </div>
+
+  </div>
+  </form>
+  <!-- / tableBlock -->
+</template>

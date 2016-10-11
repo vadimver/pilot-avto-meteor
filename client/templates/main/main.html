@@ -1,0 +1,101 @@
+<template name="main">
+  {{mb_col}}
+<!-- # tableBlock -->
+
+<form class = "mainForm">
+<div class="tableBlock container-fluid">
+
+    <table class="table table-hover table-condensed table-striped">
+
+      <thead class = "fx">
+        <tr>
+          <th class = "groupTable">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Выбор группы <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+
+                  {{#each groups}}
+
+                      <li><button value="{{group}}" class='btn groupBtn'>{{group}}</button></li>
+                  {{/each}}
+
+                </ul>
+              </div>
+          </th>
+          <th class = "subTable">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Выбор подгруппы <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+
+                  {{#each subgroups}}
+
+                      <li><button value="{{subgroup}}" class='btn subgroupBtn'>{{subgroup}}</button></li>
+                  {{/each}}
+
+                </ul>
+              </div>
+          </th>
+          <th>Назв.</th>
+          <th>Опис.</th>
+          <th>Авто</th>
+          <th>Марка</th>
+          <th>Бренд</th>
+          <th>№ Бренда</th>
+          <th>Сорт</th>
+          <th>Наличие</th>
+          <th>З. €/П. €<br/>
+              З. ₴/П. ₴</th>
+          <th>Кол</th>
+          <th>Корзина</th>
+          <th>Резерв</th>
+          <th><a href="{{pathFor route='editMain'}}"><button type = "button" class="btn btn-warning btn-sm">Ред</button></a></th>
+        </tr>
+      </thead>
+
+      <tbody class = "norm">
+
+        {{#each main_base}}
+        <tr>
+
+          <input type="hidden" name="id" value="{{_id}}">
+
+          <td class = "groupTable"><input type="hidden" name="group" value="{{group}}">{{group}}</td>
+          <td class = "subTable"><input  type="hidden" name="subgroup" value="{{subgroup}}">{{subgroup}}</td>
+          <td><input type="hidden" name="name_detail" value="{{name_detail}}">{{name_detail}}</td>
+          <td><input type="hidden" name="desc" value="{{desc}}">{{desc}}</td>
+          <td><input type="hidden" name="avto" value="{{avto}}">{{avto}}</td>
+          <td><input type="hidden" name="marc" value="{{marc}}">{{marc}}</td>
+          <td><input type="hidden" name="brand" value="{{brand}}">{{brand}}</td>
+          <td><input type="hidden" name="num_brand" value="{{num_brand}}">{{num_brand}}</td>
+          <td><input type="hidden" name="original" value="{{original}}">{{original}}</td>
+          <td><input type="hidden" name="exist" value="{{exist}}">{{exist}}</td>
+          <td><input type="hidden" name="cost_ua_mark" value="{{cost_ua_mark}}">{{cost_euro}} €/ {{cost_euro_mark}} €<br>
+           {{cost_ua}} ₴/ {{cost_ua_mark}} ₴</td>
+
+          <td><input class = "colTable" type = "number" name = "col" min = "0"></td>
+
+
+          <th><button value = "{{@index}}" name = "idtovar" class='btn btn-success addbasket'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button></th>
+          <th><button value = "{{@index}}" name = "idtovarres" class='btn btn-warning addreserv'><span class="glyphicon glyphicon-time" aria-hidden="true"></span></button></th>
+          <th><button class='btn btn-danger delmain'><span class=" glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button></th>
+
+        </tr>
+
+        {{/each}}
+
+      </tbody>
+
+    </table>
+    <!-- Button trigger modal -->
+
+
+
+</div>
+  </form>
+<!-- / tableBlock -->
+
+</template>

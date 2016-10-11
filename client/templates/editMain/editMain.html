@@ -1,0 +1,127 @@
+<template name="editMain">
+  {{mb_col}}
+<!-- # tableBlock -->
+
+<div class="tableBlock container-fluid">
+
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>Ред</th>
+          <th class = "groupTable">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Выбор группы <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+
+                  {{#each groups}}
+
+                      <li><button value="{{group}}" class='btn groupBtn'>{{group}}</button></li>
+                  {{/each}}
+
+                </ul>
+              </div>
+          </th>
+          <th class = "subTable">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Выбор подгруппы <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+
+                  {{#each subgroups}}
+
+                      <li><button value="{{subgroup}}" class='btn subgroupBtn'>{{subgroup}}</button></li>
+                  {{/each}}
+
+                </ul>
+              </div>
+          </th>
+          <th>Название</th>
+          <th>Описание</th>
+          <th>Авто</th>
+          <th>Марка</th>
+          <th>Бренд</th>
+          <th>№ Бренда</th>
+          <th>Сортировка</th>
+          <th>Наличие</th>
+          <th>Зак. €/Прод. €<br/>
+              Зак. ₴/Прод. ₴</th>
+          <th></th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {{#each main_base}}
+        <tr class="success">
+          <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal{{@index}}">
+            +
+          </button></td>
+          <td><input type="hidden" name="group" value="{{group}}">{{group}}</td>
+          <td><input type="hidden" name="subgroup" value="{{subgroup}}">{{subgroup}}</td>
+          <td><input type="hidden" name="name_detail" value="{{name_detail}}">{{name_detail}}</td>
+          <td><input type="hidden" name="desc" value="{{desc}}">{{desc}}</td>
+          <td><input type="hidden" name="avto" value="{{avto}}">{{avto}}</td>
+          <td><input type="hidden" name="marc" value="{{marc}}">{{marc}}</td>
+          <td><input type="hidden" name="brand" value="{{brand}}">{{brand}}</td>
+          <td><input type="hidden" name="num_brand" value="{{num_brand}}">{{num_brand}}</td>
+          <td><input type="hidden" name="original" value="{{original}}">{{original}}</td>
+          <td><input type="hidden" name="exist" value="{{exist}}">{{exist}}</td>
+          <td><input type="hidden" name="cost_ua" value="{{cost_ua}}">{{cost_euro}} €/ {{cost_euro_mark}} €<br>
+           {{cost_ua}} ₴/ {{cost_ua_mark}} ₴</td>
+
+          <td><input type = "number" id="col" name = "col" min = "0"></td>
+
+
+          <th><button class='btn btn-danger delmain'><span class=" glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button></th>
+        </tr>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{@index}}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel{{@index}}">Редактировать</h4>
+              </div>
+            <form class = "editMain">
+              <div class="modal-body">
+                <input type="hidden" name="id" value="{{_id}}">
+                <input type="text" name="group" value="{{group}}">
+                <input type="text" name="subgroup" value="{{subgroup}}">
+                <input type="text" name="name_detail" value="{{name_detail}}">
+                <input type="text" name="desc" value="{{desc}}">
+                <input type="text" name="avto" value="{{avto}}">
+                <input type="text" name="marc" value="{{marc}}">
+                <input type="text" name="brand" value="{{brand}}">
+                <input type="text" name="num_brand" value="{{num_brand}}">
+                <input type="text" name="original" value="{{original}}">
+                <input type="text" name="exist" value="{{exist}}"><br>
+                {{cost_euro}} €/ {{cost_euro_mark}} €<br>
+                {{cost_ua}} ₴/ {{cost_ua_mark}} ₴
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Изменить</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+      </tbody>
+
+    </table>
+    <!-- Button trigger modal -->
+
+
+
+</div>
+
+<!-- / tableBlock -->
+</template>

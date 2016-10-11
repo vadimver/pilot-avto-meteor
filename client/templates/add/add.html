@@ -1,0 +1,33 @@
+<template name = "add">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-sm-6">
+        <form class = "add_groups">
+          <input type="text" name="group">
+          <button type = "submit" class = "btn btn-success">add Группу</button>
+        </form>
+        <ul>
+          {{#each groups}}
+          <li><button class='btn btn-danger delgroups'></button>{{group}} </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class = "col-sm-6">
+        <form class = "add_subgroups">
+              <select class = "js-example-matcher-start" name="editgroup" value = "{{group}}">
+              {{#each groups}}
+              <option class = "group-one">{{group}}</option>
+              {{/each}}
+              </select>
+          <input type="text" name="subgroup">
+          <button class = "btn btn-success">add Подгруппу</button>
+        </form>
+        <ul>
+          {{#each subgroups}}
+          <li><button class='btn btn-danger delsubgroups'></button>{{group}} /// {{subgroup}} </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

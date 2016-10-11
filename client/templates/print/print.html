@@ -1,0 +1,38 @@
+<template name = "print">
+<div class = "container checkBlock">
+  <p>Дата продажи: {{date}}</p><br><br>
+  <p>Постачальник: ФОП Канцедал А.А.</p><br><br>
+  <p>Платник: <input type="text" placeholder="Имя"> <input type="text" placeholder="Телефон"></p><br><br>
+  <p class = "nameTableCheck">Видаткова накладна № {{rand}} </p><br>
+  <img class = "imgCheck" src="logo.jpg">
+  <table class = "table table-stripped table-bordered">
+    <thead>
+        <tr>
+          <th>Название</th>
+          <th>Бренд</th>
+          <th>№</th>
+          <th>Количество</th>
+          <th>Цена</th>
+          <th>Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each check}}
+        <tr>
+          <td>{{name_detail}}</td>
+          <td>{{brand}}</td>
+          <td>{{num_brand}}</td>
+          <td>{{exist}}</td>
+          <td>{{costOne}}</td>
+          <td>{{realCol}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+  </table>
+  <p class = "pdvCheck"> Разом без ПДВ: {{allMoney}} грн </p>
+  <p class = "pdvCheck"> ПДВ          : 0 грн </p>
+  <p class = "pdvCheck"> Всього з ПДВ : {{allMoney}} грн </p><br><br><br>
+  <p>Вiдвантажив ________ ФОП Канцедал А.А.</p><p><br><br>Отримав(ла) ________</p><br><br><br>
+  <p>Гарантiйнi забов'язання продавця розповсюджуються лише на вироби, що були установленi на СТО з дотриманнями всiх монтажних iнструкцiй виробника автомобiля.</p>
+</div>
+</template>

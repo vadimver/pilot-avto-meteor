@@ -1,0 +1,51 @@
+<template name="sale">
+
+  {{#each rand}}
+  <button value = "{{this}}" class='btn btn-success seeInvoice'># {{@index}}</button>
+
+  {{/each}}
+
+  {{datego}}
+
+    <form class = "selectDate">
+      <input type="text" name = "oneDate" class="form-control" id="my-datepicker">
+      <button type = 'submit' class = 'btn btn-success'>send</button>
+    </form>
+
+
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Название</th>
+                                <th>Бренд</th>
+
+                                <th>№ Бренда</th>
+                                <th>Количество</th>
+                                <th>Цена за единицу</th>
+                                <th>Общая цена</th>
+                                <th>Скидка</th>
+                                <th>Удалить</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {{#each iinvo}}
+                              <tr class="success">
+                                <th>{{name_detail}}</th>
+                                <th>{{brand}}</th>
+                                <th>{{num_brand}}</th>
+                                <th>{{exist}}</th>
+                                <th>{{costOne}}</th>
+                                <th>{{realCol}}</th>
+                                <th>{{sale}}</th>
+                                <th><button class='btn btn-danger delsale'>Удалить</button></th>
+                              </tr>
+
+                              {{/each}}
+                              <a class = "checkprint" href="{{pathFor route='print'}}" target = "_blank"><button class='btn btn-primary checkprint' value = "123">Чек</button></a>
+                            </tbody>
+
+                          </table>
+
+
+
+</template>
